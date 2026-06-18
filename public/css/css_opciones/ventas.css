@@ -1,0 +1,122 @@
+   .PANEL-PRINCIPAL {
+        display: flex;
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f9;
+    }
+    .CONTENIDO-VENTAS {
+        flex-grow: 1;
+        padding: 25px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .LAYOUT-VENTAS {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .BLOQUE-BLANCO {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    .ENCABEZADO-BLOQUE {
+        background-color: #212529;
+        color: #ffffff;
+        padding: 15px 20px;
+    }
+    .ENCABEZADO-BLOQUE h2 { margin: 0; font-size: 1.15rem; }
+    .CUERPO-BLOQUE { padding: 20px; }
+
+    .CAJA-BUSCADOR {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .INPUT-BUSCAR {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 0.95rem;
+    }
+
+    .TABLA-VENTAS {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 0.9rem;
+    }
+    .TABLA-VENTAS th { background-color: #f8f9fa; color: #495057; padding: 12px; border-bottom: 2px solid #dee2e6; }
+    .TABLA-VENTAS td { padding: 12px; border-bottom: 1px solid #dee2e6; color: #333; vertical-align: middle; }
+    .TABLA-VENTAS tr:hover { background-color: #f1f3f5; }
+
+    .BOTON-ACCION {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.85rem;
+    }
+    .BTN-AGREGAR { background-color: #198754; color: white; }
+    .BTN-AGREGAR:hover { background-color: #157347; }
+    .BTN-QUITAR { background-color: #dc3545; color: white; padding: 4px 8px; border-radius: 4px; }
+
+    .INPUT-CANTIDAD {
+        width: 65px;
+        padding: 5px;
+        text-align: center;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+    }
+
+    .FILA-TOTAL {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0;
+        border-bottom: 1px dashed #dee2e6;
+        font-size: 1rem;
+    }
+    .FILA-TOTAL.GRANDE {
+        border-bottom: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #212529;
+        padding-top: 15px;
+    }
+    .BOTON-CONFIRMAR {
+        background-color: #212529;
+        color: white;
+        width: 100%;
+        padding: 14px;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background 0.2s;
+    }
+    .BOTON-CONFIRMAR:hover { background-color: #111416; }
+    .BOTON-CONFIRMAR:disabled { background-color: #6c757d; cursor: not-allowed; opacity: 0.6; }
+
+    .ALERTA-BLOQUEO {
+        background-color: #f8d7da;
+        color: #842029;
+        padding: 15px 20px;
+        border-radius: 6px;
+        margin-top: 15px;
+        font-weight: 600;
+        border: 1px solid #f5c2c7;
+    }
+
+    @media (max-width: 992px) {
+        .LAYOUT-VENTAS { grid-template-columns: 1fr; }
+    }

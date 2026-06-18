@@ -1,0 +1,215 @@
+  .PAGINA-LOGIN {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f9;
+        padding: 20px;
+    }
+    .TARJETA-LOGIN {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 380px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        overflow: hidden;
+    }
+    .LOGIN-HEADER {
+        background-color: #212529;
+        color: #ffffff;
+        text-align: center;
+        padding: 25px;
+    }
+    .LOGIN-HEADER h2 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    .LOGIN-HEADER small {
+        color: #6c757d;
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        display: block;
+        margin-top: 5px;
+    }
+    .LOGIN-CUERPO {
+        padding: 30px;
+    }
+    .SUBTITULO-LOGIN {
+        color: #6c757d;
+        text-align: center;
+        font-size: 0.85rem;
+        margin-top: 0;
+        margin-bottom: 25px;
+    }
+    
+    /* Caja de Alerta de Error */
+    .ALERTA-ERROR {
+        background-color: #f8d7da;
+        color: #842029;
+        border: 1px solid #f5c2c7;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Formularios y Cajas de Texto */
+    .GRUPO-INPUT {
+        margin-bottom: 20px;
+    }
+    .GRUPO-INPUT label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: #495057;
+    }
+    
+    /* Contenedor para simular el icono al lado del input */
+    .CON-ICONO {
+        display: flex;
+        border: 1px solid #ced4da;
+        border-radius: 6px;
+        overflow: hidden;
+        background-color: #f8f9fa;
+    }
+    .ICONO-CEN {
+        padding: 10px 12px;
+        color: #6c757d;
+        border-right: 1px solid #ced4da;
+        display: flex;
+        align-items: center;
+    }
+    .INPUT-LOGIN {
+        flex-grow: 1;
+        border: none;
+        padding: 10px;
+        background-color: #f8f9fa;
+        font-size: 0.95rem;
+        outline: none; /* Quita el borde feo por defecto del navegador */
+    }
+    .INPUT-LOGIN:focus {
+        background-color: #ffffff;
+    }
+
+    /* Botón de Ingreso */
+    .BOTON-INGRESAR {
+        background-color: #212529;
+        color: #ffffff;
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 0.95rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: background 0.2s;
+    }
+    .BOTON-INGRESAR:hover {
+        background-color: #111416;
+    }
+
+    .LOGIN-FOOTER {
+        background-color: #f8f9fa;
+        text-align: center;
+        padding: 15px;
+        font-size: 0.8rem;
+        color: #6c757d;
+        border-top: 1px solid #dee2e6;
+    }
+    .SEPARADOR{
+
+    text-align:center;
+
+    margin:20px 0;
+
+    position:relative;
+}
+
+.SEPARADOR span{
+
+    background:#fff;
+
+    padding:0 10px;
+
+    color:#6c757d;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.SEPARADOR::before{
+
+    content:'';
+
+    position:absolute;
+
+    top:50%;
+
+    left:0;
+
+    width:100%;
+
+    height:1px;
+
+    background:#dee2e6;
+
+    z-index:1;
+}
+
+.BOTON-REGISTRO{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    background:#198754;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.2s;
+}
+
+.BOTON-REGISTRO:hover{
+
+    background:#157347;
+
+    color:white;
+}
+
+.ALERTA-SUCCESS{
+
+    background:#d1e7dd;
+
+    color:#0f5132;
+
+    padding:12px;
+
+    border-radius:6px;
+
+    margin-bottom:15px;
+
+    font-weight:bold;
+}

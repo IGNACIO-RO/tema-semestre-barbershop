@@ -1,0 +1,144 @@
+.PANEL-PRINCIPAL{
+    display:flex;
+    min-height:100vh;
+    background:#f4f6f9;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.CONTENIDO{
+    flex-grow:1;
+    padding:25px;
+}
+
+.LAYOUT{
+    display:grid;
+    grid-template-columns:380px 1fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.BLOQUE{
+    background:white;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.HEADER{
+    background:#212529;
+    color:white;
+    padding:15px 20px;
+}
+
+.HEADER h2{
+    margin:0;
+    font-size:1.1rem;
+}
+
+.CUERPO{
+    padding:20px;
+}
+
+.GRUPO{
+    margin-bottom:15px;
+}
+
+.GRUPO label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+    color:#495057;
+}
+
+.INPUT{
+    width:100%;
+    padding:10px;
+    border:1px solid #ced4da;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+.BTN{
+
+    width:100%;
+    border:none;
+    background:#198754;
+    color:white;
+    padding:12px;
+    border-radius:6px;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.BTN:hover{
+    background:#157347;
+}
+
+.TABLA{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.TABLA th{
+    background:#f8f9fa;
+    padding:12px;
+    text-align:left;
+    border-bottom:2px solid #dee2e6;
+}
+
+.TABLA td{
+    padding:12px;
+    border-bottom:1px solid #dee2e6;
+}
+
+.BADGE{
+    padding:5px 10px;
+    border-radius:5px;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.PROGRAMADA{
+    background:#0d6efd;
+}
+
+.CONFIRMADA{
+    background:#198754;
+}
+
+.PROCESO{
+    background:#fd7e14;
+}
+
+.FINALIZADA{
+    background:#212529;
+}
+
+.CANCELADA{
+    background:#dc3545;
+}
+
+.ALERTA{
+    padding:15px;
+    border-radius:6px;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.SUCCESS{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.ERROR{
+    background:#f8d7da;
+    color:#842029;
+}
+
+@media(max-width:992px){
+    .LAYOUT{
+        grid-template-columns:1fr;
+    }
+}

@@ -1,0 +1,18 @@
+.PAGINA-REGISTRO{ min-height:100vh; display:flex; justify-content:center; align-items:center; background:#f4f6f9; padding:30px; }
+.TARJETA-REGISTRO{ width:100%; max-width:500px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1); }
+.REGISTRO-HEADER{ background:#212529; color:white; padding:25px; text-align:center; }
+.REGISTRO-HEADER h2{ margin:0; }
+.REGISTRO-CUERPO{ padding:30px; }
+.SUBTITULO-REGISTRO{ text-align:center; margin-bottom:25px; color:#6c757d; }
+.GRUPO-INPUT{ margin-bottom:18px; }
+.GRUPO-INPUT label{ display:block; margin-bottom:7px; font-weight:bold; color:#495057; }
+.CON-ICONO{ position:relative; }
+.ICONO-CEN{ position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#6c757d; }
+.INPUT-LOGIN{ width:100%; padding:12px 12px 12px 42px; border:1px solid #ced4da; border-radius:6px; font-size:0.95rem; box-sizing:border-box; }
+.INPUT-LOGIN:focus{ border-color:#198754; outline:none; }
+.BOTON-REGISTRAR{ width:100%; background:#198754; color:white; border:none; padding:14px; border-radius:6px; font-size:1rem; font-weight:bold; cursor:pointer; transition:0.2s; }
+.BOTON-REGISTRAR:hover{ background:#157347; }
+.ALERTA-ERROR{ background:#f8d7da; color:#842029; padding:12px; border-radius:6px; margin-bottom:20px; font-weight:bold; }
+.VOLVER-LOGIN{ margin-top:20px; text-align:center; }
+.VOLVER-LOGIN a{ text-decoration:none; color:#198754; font-weight:bold; }
+.REGISTRO-FOOTER{ background:#f8f9fa; padding:15px; text-align:center; color:#6c757d; font-size:0.9rem; }

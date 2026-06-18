@@ -1,0 +1,112 @@
+ .PANEL-PRINCIPAL {
+        display: flex;
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f9;
+    }
+    .CONTENIDO-INVENTARIO {
+        flex-grow: 1;
+        padding: 25px;
+    }
+    .CONTENEDOR-TABLA {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .ENCABEZADO-PANEL {
+        background-color: #212529;
+        color: #ffffff;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .ENCABEZADO-PANEL h2 { margin: 0; font-size: 1.3rem; }
+    
+    /* Botones tradicionales */
+    .BOTON {
+        padding: 8px 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 0.9rem;
+        transition: background 0.2s;
+    }
+    .BOTON-NUEVO { background-color: #f8f9fa; color: #212529; }
+    .BOTON-NUEVO:hover { background-color: #e2e6ea; }
+    .BOTON-EDITAR { background-color: #ffc107; color: #000; margin-right: 5px; }
+    .BOTON-ELIMINAR { background-color: #dc3545; color: #fff; }
+    .BOTON-GUARDAR { background-color: #212529; color: white; width: 100%; padding: 12px; }
+    .BOTON-CANCELAR { background-color: #6c757d; color: white; }
+
+    /* Tabla Estándar */
+    .TABLA-DATOS {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+    .TABLA-DATOS th { background-color: #f8f9fa; color: #495057; padding: 12px; border-bottom: 2px solid #dee2e6; }
+    .TABLA-DATOS td { padding: 12px; border-bottom: 1px solid #dee2e6; color: #333; }
+    .TABLA-DATOS tr:hover { background-color: #f1f3f5; }
+
+    /* Alertas de Stock */
+ .ALERTA-STOCK {
+        padding: 6px 12px;
+        border-radius: 12px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        color: white;
+        display: inline-block; /* Le da cuerpo al elemento */
+        white-space: nowrap;    /* ¡La clave! Evita que el texto se parta en dos líneas */
+        text-align: center;
+        min-width: 55px;       /* Asegura espacio suficiente para 3 dígitos y la 'u.' */
+    }
+    .STOCK-OK { background-color: #28a745; }
+    .STOCK-BAJO { background-color: #dc3545; }
+
+    /* Ventanas Modales Propias */
+    .CAPA-MODAL {
+        display: none; 
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+    .VENTANA-MODAL {
+        background: white;
+        width: 100%;
+        max-width: 500px;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .MODAL-HEADER {
+        background-color: #212529;
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .MODAL-HEADER h3 { margin: 0; font-size: 1.1rem; }
+    .MODAL-CERRAR { background: none; border: none; color: white; font-size: 1.3rem; cursor: pointer; }
+    .MODAL-BODY { padding: 20px; }
+    .MODAL-FOOTER { background: #f8f9fa; padding: 12px; display: flex; justify-content: flex-end; gap: 10px; }
+
+    /* Formularios */
+    .GRUPO-FORM { margin-bottom: 15px; }
+    .GRUPO-FORM label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 0.9rem; }
+    .INPUT-CONTROL {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 0.95rem;
+    }
+    .FILA-DOBLE { display: flex; gap: 15px; }
+    .FILA-DOBLE .GRUPO-FORM { flex: 1; }

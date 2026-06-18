@@ -1,0 +1,32 @@
+    .BARRA-NAVEGACION {
+        background-color: #ffffff;
+        border-bottom: 1px solid #dee2e6;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        margin-bottom: 20px;
+    }
+    .BARRA-TITULO {
+        font-size: 1.1rem;
+        color: #6c757d;
+        font-weight: 600;
+        margin: 0;
+    }
+    .BARRA-USUARIO-CONTENEDOR {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: #212529;
+    }
+    .ETIQUETA-ROL {
+        background-color: #212529;
+        color: #ffffff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }

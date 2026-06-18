@@ -1,0 +1,47 @@
+   .SIDEBAR {
+        width: 260px;
+        background-color: #212529;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+    .BRAND-LOGO {
+        padding: 20px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        border-bottom: 1px solid #343a40;
+        text-align: center;
+    }
+    .MENU-ITEMS {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+        flex-grow: 1;
+    }
+    .ITEM-MENU a {
+        display: block;
+        padding: 12px 20px;
+        color: #adbcda;
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+    }
+    .ITEM-MENU a:hover {
+        background-color: #343a40;
+        color: #fff;
+        padding-left: 25px;
+    }
+    .SIDEBAR-FOOTER {
+        padding: 15px 20px;
+        border-top: 1px solid #343a40;
+    }
+    .BOTON-LOGOUT {
+        color: #dc3545;
+        text-decoration: none;
+        font-size: 0.95rem;
+        display: block;
+    }
+    .BOTON-LOGOUT:hover { color: #ea868f; }

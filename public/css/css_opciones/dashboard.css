@@ -1,0 +1,90 @@
+  /* Contenedor Principal en Flexbox para alinear el Sidebar */
+    .CONTENEDOR-PANEL {
+        display: flex;
+        min-height: 100vh;
+        background-color: #f4f6f9;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Área de contenido del Dashboard */
+    .CONTENIDO-DASHBOARD {
+        flex-grow: 1;
+        padding: 30px;
+        box-sizing: border-box;
+    }
+
+    /* Bloque superior de Bienvenida */
+    .BANNER-BIENVENIDA {
+        background-color: #ffffff;
+        padding: 24px 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        margin-top: 15px;
+        margin-bottom: 30px;
+    }
+    .BANNER-BIENVENIDA h1 {
+        margin: 0;
+        font-size: 1.7rem;
+        color: #212529;
+        font-weight: 700;
+    }
+    .BANNER-BIENVENIDA p {
+        margin: 6px 0 0 0;
+        color: #6c757d;
+        font-size: 1rem;
+    }
+
+    /* CSS GRID para las tarjetas de indicadores */
+    .GRID-METRICAS {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    /* Tarjeta Base Estilizada */
+    .TARJETA-CONTADOR {
+        background-color: #ffffff;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-left: 6px solid #212529; /* Borde oscuro por defecto */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .TARJETA-CONTADOR:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Variaciones de Color usando tus estados en la Barbería */
+    .TARJETA-CONTADOR.VERDE { border-left-color: #198754; }
+    .TARJETA-CONTADOR.AZUL { border-left-color: #0d6efd; }
+    .TARJETA-CONTADOR.ROJO { border-left-color: #dc3545; }
+
+    /* Textos internos de la tarjeta */
+    .TEXTOS-TARJETA label {
+        font-size: 0.82rem;
+        color: #6c757d;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .TEXTOS-TARJETA h2 {
+        margin: 0;
+        font-size: 1.9rem;
+        color: #212529;
+        font-weight: 700;
+    }
+
+    /* Contenedor del Icono */
+    .ICONO-CONTENEDOR {
+        font-size: 2.4rem;
+        line-height: 1;
+    }
+    .VERDE .ICONO-CONTENEDOR { color: #198754; }
+    .AZUL .ICONO-CONTENEDOR { color: #0d6efd; }
+    .ROJO .ICONO-CONTENEDOR { color: #dc3545; }

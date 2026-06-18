@@ -1,0 +1,55 @@
+
+   /* Estilos específicos adicionales para las tarjetas de los barberos */
+        .contenedor-barberos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 40px 5%;
+        }
+        .tarjeta-barbero {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .tarjeta-barbero:hover {
+            transform: translateY(-5px);
+        }
+        .avatar-barbero {
+            width: 150px;
+            height: 150px;
+            border-radius: 10%; /* Hace la foto completamente circular */
+            object-fit: cover;
+            margin: 0 auto 15px auto;
+            border: 3px solid #d4af37; /* Un borde elegante (puedes cambiar el color) */
+            display: block;
+        }
+        .tarjeta-barbero h3 {
+            margin: 10px 0 5px 0;
+            font-size: 1.3rem;
+            color: #333;
+        }
+        .tarjeta-barbero .especialidad {
+            color: #777;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .btn-perfil {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn-perfil:hover {
+            background-color: #d4af37;
+            color: #333;
+        }

@@ -1,0 +1,59 @@
+
+.PANEL{
+    display:flex;
+    min-height:100vh;
+    background:#f4f6f9;
+}
+
+.CONTENIDO{
+    flex-grow:1;
+    padding:25px;
+}
+
+.BLOQUE{
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.08);
+    overflow:hidden;
+}
+
+.HEADER{
+    background:#212529;
+    color:white;
+    padding:15px 20px;
+}
+
+.TABLA{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.TABLA th{
+    background:#f8f9fa;
+    padding:12px;
+    text-align:left;
+}
+
+.TABLA td{
+    padding:12px;
+    border-top:1px solid #dee2e6;
+}
+
+.BTN{
+
+    background:#198754;
+
+    color:white;
+
+    padding:8px 12px;
+
+    border-radius:5px;
+
+    text-decoration:none;
+
+    font-size:14px;
+}
+
+.BTN:hover{
+    background:#157347;
+}

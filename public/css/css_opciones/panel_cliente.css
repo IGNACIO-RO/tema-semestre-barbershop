@@ -1,0 +1,95 @@
+.PANEL-CLIENTE{
+
+    padding:40px;
+
+    background:#f4f6f9;
+
+    min-height:100vh;
+}
+
+.TARJETA-BIENVENIDA{
+
+    background:#212529;
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    margin-bottom:30px;
+}
+
+.TARJETA-BIENVENIDA h1{
+
+    margin:0;
+}
+
+.GRID-CLIENTE{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+}
+
+.CARD-CLIENTE{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    color:#212529;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+
+    transition:0.2s;
+}
+
+.CARD-CLIENTE:hover{
+
+    transform:translateY(-5px);
+
+    color:#198754;
+}
+
+.CARD-CLIENTE i{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+    display:block;
+}
+
+.CARD-CLIENTE h3{
+
+    margin-bottom:10px;
+}
+
+.BTN-LOGOUT{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+}
+
+.BTN-LOGOUT:hover{
+
+    background:#bb2d3b;
+
+    color:white;
+}
