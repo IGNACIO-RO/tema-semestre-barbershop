@@ -1,6 +1,8 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) { session_start(); }
-if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) { header("Location: login.php"); exit(); }
+// 1. Cargamos el Helper de Seguridad y verificamos que sea Admin (Rol 1)
+require_once __DIR__ . '/../config/AuthHelper.php';
+checkAuth([1]); // Con esta sola línea reemplazas todo el bloque anterior
+
 require_once __DIR__ . '/../controllers/UsuariosController.php';
 $controller = new UsuariosController();
 $usuarios = $controller->listarUsuarios();
