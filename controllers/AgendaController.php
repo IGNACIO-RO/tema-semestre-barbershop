@@ -1,27 +1,17 @@
 <?php
 // controllers/AgendaController.php
-
 require_once __DIR__ . '/../config/database.php';
-
 class AgendaController {
-
     private $db;
-
     public function __construct() {
-
         $database = new Database();
-
         $this->db = $database->getConnection();
     }
-
     // =====================================================
     // LISTAR CLIENTES
     // =====================================================
-
     public function listarClientes() {
-
         try {
-
             $sql = "
                 SELECT
                     id_cliente,
@@ -29,27 +19,18 @@ class AgendaController {
                 FROM clientes
                 ORDER BY nombre_completo ASC
             ";
-
             $stmt = $this->db->prepare($sql);
-
             $stmt->execute();
-
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         } catch(PDOException $e){
-
             return [];
         }
     }
-
     // =====================================================
     // LISTAR BARBEROS
     // =====================================================
-
     public function listarBarberos() {
-
         try {
-
             $sql = "
                 SELECT
                     u.id_usuario,
@@ -59,27 +40,18 @@ class AgendaController {
                 AND u.estado_active = 1
                 ORDER BY u.nombre_completo ASC
             ";
-
             $stmt = $this->db->prepare($sql);
-
             $stmt->execute();
-
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         } catch(PDOException $e){
-
             return [];
         }
     }
-
     // =====================================================
     // LISTAR SERVICIOS
     // =====================================================
-
     public function listarServicios() {
-
         try {
-
             $sql = "
                 SELECT
                     id_servicio,
@@ -89,23 +61,16 @@ class AgendaController {
                 FROM servicios
                 ORDER BY nombre_servicio ASC
             ";
-
             $stmt = $this->db->prepare($sql);
-
             $stmt->execute();
-
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         } catch(PDOException $e){
-
             return [];
         }
     }
-
     // =====================================================
     // REGISTRAR CITA
     // =====================================================
-
     public function registrarCita(
         $idCliente,
         $idBarbero,
@@ -113,13 +78,10 @@ class AgendaController {
         $fecha,
         $hora
     ) {
-
         try {
-
             // =========================================
             // VALIDAR SI EL BARBERO YA TIENE CITA
             // =========================================
-
             $sqlValidar = "
                 SELECT COUNT(*) as total
                 FROM citas
@@ -128,32 +90,22 @@ class AgendaController {
                 AND hora_cita = :hora
                 AND estado_cita != 'Cancelada'
             ";
-
             $stmtValidar = $this->db->prepare($sqlValidar);
-
             $stmtValidar->execute([
-
                 ':id_barbero' => $idBarbero,
-
                 ':fecha' => $fecha,
-
                 ':hora' => $hora
             ]);
-
             $existe = $stmtValidar->fetch(PDO::FETCH_ASSOC);
-
             if ($existe['total'] > 0) {
-
                 return [
                     'success' => false,
                     'message' => 'El barbero ya tiene una cita en ese horario.'
                 ];
             }
-
             // =========================================
             // INSERTAR CITA
             // =========================================
-
             $sql = "
                 INSERT INTO citas
                 (
@@ -174,136 +126,113 @@ class AgendaController {
                     'Programada'
                 )
             ";
-
             $stmt = $this->db->prepare($sql);
-
             $resultado = $stmt->execute([
-
                 ':id_cliente' => $idCliente,
-
                 ':id_barbero' => $idBarbero,
-
                 ':id_servicio' => $idServicio,
-
                 ':fecha' => $fecha,
-
                 ':hora' => $hora
             ]);
-
             if ($resultado) {
-
                 return [
                     'success' => true
                 ];
             }
-
             return [
                 'success' => false,
                 'message' => 'No se pudo registrar la cita.'
             ];
-
         } catch(PDOException $e){
-
             return [
                 'success' => false,
                 'message' => $e->getMessage()
             ];
         }
     }
-
     // =====================================================
     // LISTAR CITAS
     // =====================================================
-
     public function listarCitas() {
-
         try {
-
             $sql = "
                 SELECT
-
                     c.id_cita,
-
                     cli.nombre_completo AS cliente,
-
                     u.nombre_completo AS barbero,
-
                     s.nombre_servicio,
-
                     s.precio_bob,
-
                     c.fecha_cita,
-
                     c.hora_cita,
-
                     c.estado_cita
-
                 FROM citas c
-
                 INNER JOIN clientes cli
                     ON c.id_cliente = cli.id_cliente
-
                 INNER JOIN usuarios u
                     ON c.id_barbero = u.id_usuario
-
                 INNER JOIN servicios s
                     ON c.id_servicio = s.id_servicio
-
                 ORDER BY c.fecha_cita DESC,
                          c.hora_cita ASC
             ";
-
             $stmt = $this->db->prepare($sql);
-
             $stmt->execute();
-
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         } catch(PDOException $e){
-
             return [];
         }
     }
-
     // =====================================================
     // CAMBIAR ESTADO CITA
     // =====================================================
+// =====================================================
+// CAMBIAR ESTADO CITA
+// =====================================================
 
-    public function cambiarEstado(
-        $idCita,
-        $estado
-    ) {
+public function cambiarEstado(
+    $idCita,
+    $estado
+) {
 
-        try {
+    try {
 
-            $sql = "
-                UPDATE citas
-                SET estado_cita = :estado
-                WHERE id_cita = :id
-            ";
+        // 1. Obtener el estado actual de la cita
+        $sqlEstadoActual = "SELECT estado_cita FROM citas WHERE id_cita = :id LIMIT 1";
+        $stmtEstado = $this->db->prepare($sqlEstadoActual);
+        $stmtEstado->execute([':id' => $idCita]);
+        $citaActual = $stmtEstado->fetch(PDO::FETCH_ASSOC);
 
-            $stmt = $this->db->prepare($sql);
-
-            return $stmt->execute([
-
-                ':estado' => $estado,
-
-                ':id' => $idCita
-            ]);
-
-        } catch(PDOException $e){
-
+        // 2. Si la cita no existe o ya está 'Finalizada', bloquear la modificación
+        if (!$citaActual || $citaActual['estado_cita'] === 'Finalizada') {
             return false;
         }
-    }
 
+        // 3. Proceder con la actualización si no estaba finalizada
+        $sql = "
+            UPDATE citas
+            SET estado_cita = :estado
+            WHERE id_cita = :id
+        ";
+
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+
+            ':estado' => $estado,
+
+            ':id' => $idCita
+        ]);
+
+    } catch(PDOException $e){
+
+        return false;
+    }
+}
 public function listarCitasCliente($idCliente)
 {
     try {
-
         $sql = "
             SELECT
-
                 c.id_cita,
                 u.nombre_completo AS barbero,
                 s.nombre_servicio,
@@ -311,133 +240,91 @@ public function listarCitasCliente($idCliente)
                 c.fecha_cita,
                 c.hora_cita,
                 c.estado_cita
-
             FROM citas c
-
             INNER JOIN usuarios u
                 ON c.id_barbero = u.id_usuario
-
             INNER JOIN servicios s
                 ON c.id_servicio = s.id_servicio
-
             WHERE c.id_cliente = :id_cliente
-
             ORDER BY c.fecha_cita DESC,
                      c.hora_cita ASC
         ";
-
         $stmt = $this->db->prepare($sql);
-
         $stmt->execute([
             ':id_cliente' => $idCliente
         ]);
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     } catch(PDOException $e){
-
         return [];
     }
 }
-
 public function obtenerIdClientePorCorreo($correo)
 {
     try {
-
         $sql = "
             SELECT id_cliente
             FROM clientes
             WHERE correo = :correo
             LIMIT 1
         ";
-
         $stmt = $this->db->prepare($sql);
-
         $stmt->execute([
             ':correo' => $correo
         ]);
-
         return $stmt->fetch(PDO::FETCH_ASSOC);
-
     } catch(PDOException $e){
-
         return null;
     }
 }
-
-
 }
-
 // =========================================================
 // RECEPTOR POST
 // =========================================================
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     $controller = new AgendaController();
-
     // =============================================
     // REGISTRAR CITA
     // =============================================
-
     if (
         isset($_POST['action']) &&
         $_POST['action'] === 'registrar_cita'
     ) {
 
         $resultado = $controller->registrarCita(
-
             intval($_POST['id_cliente']),
-
             intval($_POST['id_barbero']),
-
             intval($_POST['id_servicio']),
-
             $_POST['fecha_cita'],
-
             $_POST['hora_cita']
         );
-
         if ($resultado['success']) {
 
             header(
                 "Location: ../views/agenda.php?status=success"
             );
-
         } else {
-
             header(
                 "Location: ../views/agenda.php?status=error&msg="
                 . urlencode($resultado['message'])
             );
         }
-
         exit();
     }
-
     // =============================================
     // CAMBIAR ESTADO
     // =============================================
-
     if (
         isset($_POST['action']) &&
         $_POST['action'] === 'cambiar_estado'
     ) {
-
         $controller->cambiarEstado(
-
             intval($_POST['id_cita']),
-
             $_POST['estado']
         );
-
         header(
             "Location: ../views/agenda.php"
         );
-
         exit();
     }
 }
-
-
 ?>

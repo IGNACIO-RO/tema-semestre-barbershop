@@ -75,29 +75,34 @@ include __DIR__ . '/layouts/header.php';
                                     <td><?= $c['hora_cita']; ?></td>
                                     <td>
                                         <?php
-                                        $clase = '';
-                                        switch($c['estado_cita']){
-                                            case 'Programada': $clase = 'PROGRAMADA'; break;
-                                            case 'Confirmada': $clase = 'CONFIRMADA'; break;
-                                            case 'En Proceso': $clase = 'PROCESO'; break;
-                                            case 'Finalizada': $clase = 'FINALIZADA'; break;
-                                            case 'Cancelada': $clase = 'CANCELADA'; break;
-                                        }
-                                        ?>
-                                        <span class="BADGE <?= $clase; ?>"><?= $c['estado_cita']; ?></span>
-                                    </td>
-                                    <td>
-                                        <form method="POST" action="../controllers/AgendaController.php">
-                                            <input type="hidden" name="action" value="cambiar_estado">
-                                            <input type="hidden" name="id_cita" value="<?= $c['id_cita']; ?>">
-                                            <select name="estado" class="INPUT" onchange="this.form.submit()">
-                                                <option value="Programada" <?= ($c['estado_cita']=='Programada') ? 'selected' : ''; ?>>Programada</option>
-                                                <option value="Confirmada" <?= ($c['estado_cita']=='Confirmada') ? 'selected' : ''; ?>>Confirmada</option>
-                                                <option value="En Proceso" <?= ($c['estado_cita']=='En Proceso') ? 'selected' : ''; ?>>En Proceso</option>
-                                                <option value="Finalizada" <?= ($c['estado_cita']=='Finalizada') ? 'selected' : ''; ?>>Finalizada</option>
-                                                <option value="Cancelada" <?= ($c['estado_cita']=='Cancelada') ? 'selected' : ''; ?>>Cancelada</option>
-                                            </select>
-                                        </form>
+$clase = '';
+switch($c['estado_cita']){
+    case 'Programada': $clase = 'PROGRAMADA'; break;
+    case 'Confirmada': $clase = 'CONFIRMADA'; break;
+    case 'En Proceso': $clase = 'PROCESO'; break;
+    case 'Finalizada': $clase = 'FINALIZADA'; break;
+    case 'Cancelada': $clase = 'CANCELADA'; break;
+}
+
+// Verificamos si la cita ya está finalizada
+$esFinalizada = ($c['estado_cita'] === 'Finalizada');
+?>
+<span class="BADGE <?= $clase; ?>"><?= $c['estado_cita']; ?></span>
+</td>
+<td>
+<form method="POST" action="../controllers/AgendaController.php">
+    <input type="hidden" name="action" value="cambiar_estado">
+    <input type="hidden" name="id_cita" value="<?= $c['id_cita']; ?>">
+    
+    <!-- Se agrega 'disabled' si está finalizada -->
+    <select name="estado" class="INPUT" onchange="this.form.submit()" <?= $esFinalizada ? 'disabled' : ''; ?>>
+        <option value="Programada" <?= ($c['estado_cita']=='Programada') ? 'selected' : ''; ?>>Programada</option>
+        <option value="Confirmada" <?= ($c['estado_cita']=='Confirmada') ? 'selected' : ''; ?>>Confirmada</option>
+        <option value="En Proceso" <?= ($c['estado_cita']=='En Proceso') ? 'selected' : ''; ?>>En Proceso</option>
+        <option value="Finalizada" <?= ($c['estado_cita']=='Finalizada') ? 'selected' : ''; ?>>Finalizada</option>
+        <option value="Cancelada" <?= ($c['estado_cita']=='Cancelada') ? 'selected' : ''; ?>>Cancelada</option>
+    </select>
+</form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
